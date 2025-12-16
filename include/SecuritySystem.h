@@ -17,11 +17,18 @@
 #include "Light.h"
 #include <vector>
 
+// Forward declarations for handlers
+class SecurityHandler;
+class AlarmHandler;
+
 class SecuritySystem
 {
 private:
     Alarm *alarm;
     std::vector<Light *> *lights;
+
+    // Chain handlers
+    AlarmHandler *alarmHandler;
 
     bool isActive;
 
