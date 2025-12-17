@@ -1,13 +1,37 @@
-#ifndef DETECTION_SYSTEM_H
-#define DETECTION_SYSTEM_H
+/**
+ * @file DetectionSystem.h
+ * @brief Detection System handling smoke and gas detectors
+ * @version 5.0
+ * @date 03/12/2025
+ * 
+ * @authors
+ * - 210201856: Detection System - Chain of Responsibility, Observer (Smoke/Gas)
+ * 
+ * @patterns Chain of Responsibility, Observer
+ */
 
-#include <string>
+#ifndef DETECTIONSYSTEM_H
+#define DETECTIONSYSTEM_H
 
-// Interface for DetectionSystem
+#include <vector>
+#include "Alarm.h"
+#include "Light.h"
+
 class DetectionSystem {
+private:
+    Alarm* alarm;
+    std::vector<Light*>* lights;
+    
 public:
-    virtual ~DetectionSystem() {}
-    virtual void handleDetection(const std::string& detectorName, const std::string& detectionType, const std::string& message) = 0;
+    DetectionSystem(Alarm* alarm, std::vector<Light*>* lights);
+    ~DetectionSystem();
+    
+    void activate();
+    void deactivate();
+    
+    void handleSmokeDetection();
+    void handleGasDetection();
+    void displayStatus() const;
 };
 
-#endif // DETECTION_SYSTEM_H
+#endif // DETECTIONSYSTEM_H
