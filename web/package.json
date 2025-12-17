@@ -1,0 +1,15 @@
+{
+  "name": "msh-web-interface",
+  "version": "1.0.0",
+  "description": "Web interface for My Sweet Home C++ Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  },
+  "author": "Internal Pointer Variable",
+  "license": "ISC"
+}
